@@ -56,6 +56,7 @@ def checkout(cart, coupons)
   grand_total = 0
   checkout_items = []
   checkout_items = consolidate_cart(cart)
+  binding.pry
   checkout_items = apply_coupons(checkout_items, coupons)
   checkout_items = apply_clearance(checkout_items)
   checkout_items.each do |item|
