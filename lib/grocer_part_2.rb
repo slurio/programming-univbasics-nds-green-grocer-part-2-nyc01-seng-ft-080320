@@ -55,10 +55,11 @@ def checkout(cart, coupons)
   # BEFORE it begins the work of calculating the total (or else you might have
   # some irritated customers
   grand_total = 0
-  cart = consolidate_cart(cart)
-  cart = apply_coupons(cart, coupons)
-  cart = apply_clearance(cart)
-  cart.each do |item|
+  checkout_items = []
+  checkout_items = consolidate_cart(cart)
+  checkout_items = apply_coupons(checkout_items, coupons)
+  checkout_items = apply_clearance(checkout_items)
+  checkout_items.each do |item|
     grand_total += (item[:price] * item[:count])
   end
   if grand_total > 100
