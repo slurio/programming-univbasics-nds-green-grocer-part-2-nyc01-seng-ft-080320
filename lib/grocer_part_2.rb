@@ -23,7 +23,6 @@ def apply_coupons(cart, coupons)
           update_coupon_item[:price] = coupon_item[:cost]/coupon_item[:num]
           cart << update_coupon_item
           cart_item[:count] -= coupon_item[:num]
-          binding.pry
         end
       end
     end
