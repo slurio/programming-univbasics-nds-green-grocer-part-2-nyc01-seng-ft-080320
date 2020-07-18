@@ -17,12 +17,12 @@ def apply_coupons(cart, coupons)
           cart << update_coupon_item
           cart_item[:count] -= coupon_item[:num]
         else
+          cart_item[:count] -= coupon_item[:num]
           update_coupon_item = cart_item.clone
           update_coupon_item[:item] += " W/COUPON"
           update_coupon_item[:count] = coupon_item[:num]
           update_coupon_item[:price] = coupon_item[:cost]/coupon_item[:num]
           cart << update_coupon_item
-          cart_item[:count] -= coupon_item[:num]
         end
       end
     end
