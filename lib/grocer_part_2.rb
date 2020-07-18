@@ -9,7 +9,7 @@ def apply_coupons(cart, coupons)
   coupons.each do |coupon_item|
     current_coupon_item = find_item_by_name_in_collection(coupon_item[:item], cart)
     cart.each do |cart_item|
-      if current_coupon_item[:item] == cart_item[:item]
+      if current_coupon_item[:item] == cart_item[:item] and if coupon_item[:num] <= cart_item[:count]
         if cart_item[:count] == coupon_item[:num]
           update_coupon_item = cart_item.clone
           update_coupon_item[:item] += " W/COUPON"
@@ -56,7 +56,6 @@ def checkout(cart, coupons)
   grand_total = 0
   checkout_items = []
   checkout_items = apply_clearance(apply_coupons(consolidate_cart(cart), coupons))
-  binding.pry
 #  checkout_items = consolidate_cart(cart)
 #  checkout_items = apply_coupons(checkout_items, coupons)
 #  checkout_items = apply_clearance(checkout_items)
