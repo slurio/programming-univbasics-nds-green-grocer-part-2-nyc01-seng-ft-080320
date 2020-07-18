@@ -61,5 +61,8 @@ def checkout(cart, coupons)
   cart.each do |item|
     grand_total += (item[:price] * item[:count])
   end
+  if grand_total > 100
+    grand_total = (grand_total - (grand_total * .10)).round(2)
+  end
   grand_total
 end
