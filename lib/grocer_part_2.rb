@@ -53,7 +53,6 @@ def checkout(cart, coupons)
   #
   # BEFORE it begins the work of calculating the total (or else you might have
   # some irritated customers
-  binding.pry
   grand_total = 0
   checkout_items = []
   checkout_items = consolidate_cart(cart)
